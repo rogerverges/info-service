@@ -28,7 +28,7 @@ func getCars(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case "GET":
-		fmt.Printf("roger")
+		fmt.Println("roger")
 		ID := r.URL.Path[18:]
 
 		obtenerCoches(ID, w)
