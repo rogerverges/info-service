@@ -77,7 +77,6 @@ func obtenerCoches(ID string, w http.ResponseWriter) ([]cars, error) {
 			w.Write([]byte("Hello, World!"))
 		} else{
 			json.NewEncoder(w).Encode(receivedCar)
-			json.NewEncoder(w).Encode(receivedCar)
 			fmt.Println("Successfully Selected from MySQL database")
 		}
 	}
