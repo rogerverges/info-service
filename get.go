@@ -16,7 +16,7 @@ type cars struct {
 }
 
 func main() {
-	
+
 	http.HandleFunc("/services/v1/cars/", getCars)
 	direccion := ":8080"
 	fmt.Println("Servidor listo escuchando en " + direccion)
@@ -72,9 +72,13 @@ func obtenerCoches(ID string, w http.ResponseWriter) ([]cars, error) {
 		if err != nil {
 			return nil, err
 		}
-		json.NewEncoder(w).Encode(receivedCar)
-		json.NewEncoder(w).Encode(receivedCar)
-		
+		if &receivedCar.ID == nil{
+			w.WriteHeader(404)
+			w.Write([]byte("Hello, World!"))
+		} else{
+			json.NewEncoder(w).Encode(receivedCar)
+			fmt.Println("Successfully Selected from MySQL database")
+		}
 	}
 	return nil, nil
 }
