@@ -73,6 +73,7 @@ func obtenerCoches(ID string, w http.ResponseWriter) ([]cars, error) {
 			return nil, err
 		}
 		json.NewEncoder(w).Encode(receivedCar)
+		json.NewEncoder(w).Encode(receivedCar)
 		
 	}
 	return nil, nil
